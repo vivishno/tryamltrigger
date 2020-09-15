@@ -24,7 +24,12 @@ jobs:
         uses: Azure/aml-workspace@v1
         with:
             azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-
+            
+      - uses: Azure/aml-compute@v1
+        id: aml_compute
+        with:
+          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          
       # # Register model in Azure Machine Learning model registry
       - name: Register model
         id: aml_registermodel
